@@ -1,35 +1,20 @@
 public class Persona {
 
     // Atributos (estado/características de un objeto)
-    public String nombre;
-    public String apellido;
-    public int edad;
-    Carrera carrera;
-    // Métodos (comportamiento de un objeto)
+    private String nombre;
+    private String apellido;
+    private int edad;
 
     // Constructor
-    public Persona(String nombre, String apellido, int edad, String nombreCarrera, int duracionCarrera, boolean estaEnCurso) {
-        carrera = new Carrera(nombreCarrera, duracionCarrera, estaEnCurso);
-        //this: se va a referiir a nuestros atributos de clase Persona
-        //public String nombre //Esta info me la manda desde el main
+    public Persona(String nombre, String apellido, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        carrera.nombre = nombreCarrera;
-    }
-    // Sobrecarga del Constructor
-    public Persona(String nombre, String apellido, int edad, String nombreCarrera) {
-        carrera = new Carrera(nombreCarrera);
-        //this: se va a referiir a nuestros atributos de clase Persona
-        //public String nombre //Esta info me la manda desde el main
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        carrera.nombre = nombreCarrera;
     }
 
+    // Métodos (comportamiento de un objeto)
     public String darNombreCompleto() {
-        return apellido + ", " + nombre;
+        return getApellido() + ", " + getNombre();
     }
 
     public String enviarSaludo(String saludado) {
@@ -37,5 +22,33 @@ public class Persona {
             return "Buenos días, querido " + saludado;
         return "Hola, ¿cómo estás " + saludado + "?";
     }
+
+    //GETTERS Y SETTERS
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    
 
 }
